@@ -1,0 +1,76 @@
+\hypertarget{class_addressbook}{}\doxysection{Addressbook Class Reference}
+\label{class_addressbook}\index{Addressbook@{Addressbook}}
+
+
+Container for Combo\+Box and List\+Widget items.  
+
+
+
+
+{\ttfamily \#include $<$addressbook.\+h$>$}
+
+Inheritance diagram for Addressbook\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_addressbook}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_addressbook_aefd0eebc25a5e00a09f191f995818bf9}\label{class_addressbook_aefd0eebc25a5e00a09f191f995818bf9}} 
+\mbox{\hyperlink{class_addressbook_aefd0eebc25a5e00a09f191f995818bf9}{Addressbook}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a combobox with the given parent. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_addressbook_af1c6196d69eb495452fd50ff0f63ae4d}{$\sim$\+Addressbook}} ()
+\begin{DoxyCompactList}\small\item\em Destroy addressbook. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_addressbook_a94c5040f0382e792ea92a130a5ae711b}{set\+Model}} (Q\+Abstract\+Item\+Model $\ast$model)
+\begin{DoxyCompactList}\small\item\em Sets the model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Container for Combo\+Box and List\+Widget items. 
+
+Common application class that is container and layout manager for other Q\+Widget objects like Q\+Combo\+Box, \mbox{\hyperlink{class_name_list_view}{Name\+List\+View}}. 
+
+Definition at line 38 of file addressbook.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_addressbook_af1c6196d69eb495452fd50ff0f63ae4d}\label{class_addressbook_af1c6196d69eb495452fd50ff0f63ae4d}} 
+\index{Addressbook@{Addressbook}!````~Addressbook@{$\sim$Addressbook}}
+\index{````~Addressbook@{$\sim$Addressbook}!Addressbook@{Addressbook}}
+\doxysubsubsection{\texorpdfstring{$\sim$Addressbook()}{~Addressbook()}}
+{\footnotesize\ttfamily Addressbook\+::$\sim$\+Addressbook (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destroy addressbook. 
+
+It\textquotesingle{}s not necessary. Relying on Qt memory management the parent Q\+Object class will delete all the objects in its child list when the parent take destroyed at first. 
+
+Definition at line 39 of file addressbook.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_addressbook_a94c5040f0382e792ea92a130a5ae711b}\label{class_addressbook_a94c5040f0382e792ea92a130a5ae711b}} 
+\index{Addressbook@{Addressbook}!setModel@{setModel}}
+\index{setModel@{setModel}!Addressbook@{Addressbook}}
+\doxysubsubsection{\texorpdfstring{setModel()}{setModel()}}
+{\footnotesize\ttfamily void Addressbook\+::set\+Model (\begin{DoxyParamCaption}\item[{Q\+Abstract\+Item\+Model $\ast$}]{model }\end{DoxyParamCaption})}
+
+
+
+Sets the model. 
+
+Set appropriate model to a class private members derivatives from Q\+Widget. 
+
+Definition at line 31 of file addressbook.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{addressbook_8h}{addressbook.\+h}}\item 
+\mbox{\hyperlink{addressbook_8cpp}{addressbook.\+cpp}}\end{DoxyCompactItemize}

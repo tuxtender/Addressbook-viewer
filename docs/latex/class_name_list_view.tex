@@ -1,0 +1,85 @@
+\hypertarget{class_name_list_view}{}\doxysection{Name\+List\+View Class Reference}
+\label{class_name_list_view}\index{NameListView@{NameListView}}
+
+
+The list with model/view architecture support.  
+
+
+
+
+{\ttfamily \#include $<$namelistview.\+h$>$}
+
+Inheritance diagram for Name\+List\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_name_list_view}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_name_list_view_afdcf2950173bd15c7fc9d92066257607}{set\+Root\+Index}} (int index)
+\begin{DoxyCompactList}\small\item\em Match between integer index and a model index item. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_name_list_view_aabc2f041e1417aa1c819ebf673edd34b}\label{class_name_list_view_aabc2f041e1417aa1c819ebf673edd34b}} 
+\mbox{\hyperlink{class_name_list_view_aabc2f041e1417aa1c819ebf673edd34b}{Name\+List\+View}} (Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Constructs a list with the given parent. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_name_list_view_a49857eb474cdfd30979bf57c26322ba5}\label{class_name_list_view_a49857eb474cdfd30979bf57c26322ba5}} 
+virtual \mbox{\hyperlink{class_name_list_view_a49857eb474cdfd30979bf57c26322ba5}{$\sim$\+Name\+List\+View}} ()
+\begin{DoxyCompactList}\small\item\em Destroy list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The list with model/view architecture support. 
+
+A \mbox{\hyperlink{class_name_list_view}{Name\+List\+View}} is derived from the Q\+List\+View class presents items stored in a model looks as a simple non-\/hierarchical list. 
+
+Definition at line 27 of file namelistview.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_name_list_view_afdcf2950173bd15c7fc9d92066257607}\label{class_name_list_view_afdcf2950173bd15c7fc9d92066257607}} 
+\index{NameListView@{NameListView}!setRootIndex@{setRootIndex}}
+\index{setRootIndex@{setRootIndex}!NameListView@{NameListView}}
+\doxysubsubsection{\texorpdfstring{setRootIndex}{setRootIndex}}
+{\footnotesize\ttfamily void Name\+List\+View\+::set\+Root\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Match between integer index and a model index item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em integer} & index is emitted by Q\+Combo\+Box signal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+Changes Q\+Model\+Index parent item in \mbox{\hyperlink{class_name_list_view}{Name\+List\+View}}\textquotesingle{}s model. Overrides Q\+Abstract\+Item\+View slot method\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_name_list_view_afdcf2950173bd15c7fc9d92066257607}{setRootIndex}}(\textcolor{keyword}{const} QModelIndex \&index)}
+\end{DoxyCode}
+ It match integer index of Q\+Combo\+Box item to a model index of \mbox{\hyperlink{class_name_list_view}{Name\+List\+View}} object.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_name_list_view_afdcf2950173bd15c7fc9d92066257607}{NameListView::setRootIndex}}(\textcolor{keywordtype}{int} row)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    QModelIndex idx = model()-\/>index(row, 0);}
+\DoxyCodeLine{     QListView::setRootIndex(idx);}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+
+Definition at line 21 of file namelistview.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namelistview_8h}{namelistview.\+h}}\item 
+\mbox{\hyperlink{namelistview_8cpp}{namelistview.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,75 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ \mbox{\hyperlink{class_addressbook}{Addressbook}} viewer is G\+UI a C++ program using Qt framework for drawing and straightforward manipulation that join predefined corresponding rows between two Sqlite database tables. Based on the model/view architecture. Read detailed \href{task/test.pdf}{\texttt{ description}} of a program.
+
+
+\begin{DoxyItemize}
+\item User interface design snapshot
+
+
+\item Database schema
+\end{DoxyItemize}
+
+\begin{DoxyVerb}  CREATE TABLE prj_group 
+  (
+  prj_group_id INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL,
+  project_id   INTEGER NOT NULL,
+  name         TEXT    NOT NULL,
+
+  CONSTRAINT fk_prj_group_project_1 
+  FOREIGN KEY (project_id)
+  REFERENCES project (project_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  );
+
+  CREATE TABLE prj_group_addrbook 
+  (
+  prj_group_addrbook_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  prj_group_id          INTEGER NOT NULL DEFAULT 0,
+  family                TEXT,
+  first_name            TEXT,
+  second_name           TEXT,
+
+  CONSTRAINT fk_prj_group_addrbook_prj_group_1 
+  FOREIGN KEY (prj_group_id)
+  REFERENCES prj_group (prj_group_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  );
+\end{DoxyVerb}
+\hypertarget{index_autotoc_md1}{}\doxysection{Caveats}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Read only mode. Editing is not suggested.
+\item No tracking database changes during application running.
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysection{Getting Started}\label{index_autotoc_md2}
+These tiny instructions will help you build project and running on your computer.
+
+Short way is using \href{https://www.qt.io/product/development-tools}{\texttt{ Qt Creator}}.\hypertarget{index_autotoc_md3}{}\doxysubsection{Requirements}\label{index_autotoc_md3}
+Qt 5.\+12\hypertarget{index_autotoc_md4}{}\doxysubsection{Installing}\label{index_autotoc_md4}
+Generate a makefile.
+
+Makefiles are generated from the \textquotesingle{}.pro\textquotesingle{} files like this\+: \begin{DoxyVerb}qmake -o Makefile Addressbook.pro 
+\end{DoxyVerb}
+
+
+Run make \begin{DoxyVerb}make
+\end{DoxyVerb}
+\hypertarget{index_autotoc_md5}{}\doxysection{Usage}\label{index_autotoc_md5}
+Run\hypertarget{index_autotoc_md6}{}\doxysection{Built With}\label{index_autotoc_md6}
+
+\begin{DoxyItemize}
+\item \href{https://sqlitestudio.pl/}{\texttt{ Sqlite\+Studio}} -\/ Used to generate database
+\end{DoxyItemize}\hypertarget{index_autotoc_md7}{}\doxysection{Contributing}\label{index_autotoc_md7}
+Pull requests are welcome.\hypertarget{index_autotoc_md8}{}\doxysection{Authors}\label{index_autotoc_md8}
+
+\begin{DoxyItemize}
+\item {\bfseries{Denis Vasilenko}} -\/ {\itshape Initial work} -\/ \href{https://github.com/tuxtender}{\texttt{ tuxtender}}
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysection{License}\label{index_autotoc_md9}
+\href{https://www.gnu.org/licenses/gpl-3.0}{\texttt{ }}
+
+G\+NU G\+E\+N\+E\+R\+AL P\+U\+B\+L\+IC L\+I\+C\+E\+N\+SE ~\newline
+ Version 3, 29 June 2007
+
+This program is free software\+: you can redistribute it and/or modify it under the terms of the G\+NU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but W\+I\+T\+H\+O\+UT A\+NY W\+A\+R\+R\+A\+N\+TY; without even the implied warranty of M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY or F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE. See the G\+NU General Public License for more details.
+
+You should have received a copy of the G\+NU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}. 

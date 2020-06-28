@@ -1,0 +1,115 @@
+\hypertarget{class_model}{}\doxysection{Model Class Reference}
+\label{class_model}\index{Model@{Model}}
+
+
+Access to database and fetch data from there at startup.  
+
+
+
+
+{\ttfamily \#include $<$model.\+h$>$}
+
+Inheritance diagram for Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_model}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_model_a7e950e785279235c94c89b16ebea232c}{Model}} (Q\+Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Constructor that initiat from Sqlite database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_model_ad6ebd2062a0b823db841a0b88baac4c0}\label{class_model_ad6ebd2062a0b823db841a0b88baac4c0}} 
+virtual \mbox{\hyperlink{class_model_ad6ebd2062a0b823db841a0b88baac4c0}{$\sim$\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Destroy model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Access to database and fetch data from there at startup. 
+
+\begin{DoxyWarning}{Warning}
+Read only mode. Editing is not suggested. 
+
+No tracking database changes during application running.
+\end{DoxyWarning}
+The \mbox{\hyperlink{class_model}{Model}} class derived public Inheritance from Q\+Standard\+Item\+Model implements an interface for interacting with Views classes. Unlike Q\+Abstract\+Item\+Model it has defined methods index(), data(), row\+Count(), column\+Count() for View interaction with a hierarchical (2-\/level in this case) structure. 
+
+Definition at line 38 of file model.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_model_a7e950e785279235c94c89b16ebea232c}\label{class_model_a7e950e785279235c94c89b16ebea232c}} 
+\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{Model()}{Model()}}
+{\footnotesize\ttfamily Model\+::\+Model (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Constructor that initiat from Sqlite database. 
+
+Initiates Q\+Standard\+Item instance by read database at startup. Required column names of tables is hard coded in sql query. \begin{DoxyWarning}{Warning}
+No tracking database changes during application running.
+\end{DoxyWarning}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "\mbox{\hyperlink{model_8h}{model.h}}"}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_model_a7e950e785279235c94c89b16ebea232c}{Model::Model}}(QObject *parent) :  QStandardItemModel(parent)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    QSqlDatabase db = QSqlDatabase::addDatabase(\textcolor{stringliteral}{"QSQLITE"});}
+\DoxyCodeLine{    db.setDatabaseName(\textcolor{stringliteral}{"addrbooks.db"});}
+\DoxyCodeLine{    db.open();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    QStandardItem *parentItem;}
+\DoxyCodeLine{    QSqlQuery queryGroup(\textcolor{stringliteral}{"SELECT * FROM prj\_group"});}
+\DoxyCodeLine{    QString sql = \textcolor{stringliteral}{"SELECT family, first\_name, second\_name "}}
+\DoxyCodeLine{                  \textcolor{stringliteral}{"FROM prj\_group\_addrbook "}}
+\DoxyCodeLine{                  \textcolor{stringliteral}{"WHERE prj\_group\_id = :id"};}
+\DoxyCodeLine{    QSqlQuery queryName;}
+\DoxyCodeLine{    queryName.prepare(sql);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (queryGroup.next()) \{}
+\DoxyCodeLine{        parentItem = invisibleRootItem();}
+\DoxyCodeLine{        QStandardItem *item = \textcolor{keyword}{new} QStandardItem(queryGroup.value(\textcolor{stringliteral}{"name"}).toString());}
+\DoxyCodeLine{        parentItem-\/>appendRow(item);}
+\DoxyCodeLine{        parentItem = item;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        QVariant foreignKey = queryGroup.value(\textcolor{stringliteral}{"prj\_group\_id"});}
+\DoxyCodeLine{        queryName.bindValue(\textcolor{stringliteral}{":id"}, foreignKey);}
+\DoxyCodeLine{        queryName.exec();}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{while} (queryName.next()) \{}
+\DoxyCodeLine{            QStringList names;}
+\DoxyCodeLine{            \textcolor{keywordtype}{int} columnCount = queryName.record().count();}
+\DoxyCodeLine{}
+\DoxyCodeLine{            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<columnCount; i++)}
+\DoxyCodeLine{                names << qvariant\_cast<QString>(queryName.value(i));}
+\DoxyCodeLine{}
+\DoxyCodeLine{            QStandardItem *item = \textcolor{keyword}{new} QStandardItem(names.join(\textcolor{stringliteral}{" "}));}
+\DoxyCodeLine{            parentItem-\/>appendRow(item);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    db.close();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_model_ad6ebd2062a0b823db841a0b88baac4c0}{Model::\string~Model}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+\end{DoxyCodeInclude}
+ 
+
+Definition at line 13 of file model.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{model_8h}{model.\+h}}\item 
+\mbox{\hyperlink{model_8cpp}{model.\+cpp}}\end{DoxyCompactItemize}
